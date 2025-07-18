@@ -6,6 +6,8 @@ const cors = require('cors');
 require('dotenv').config()
 const helmet = require("helmet");
 const compression = require("compression");
+const cloudinary = require('cloudinary').v2;
+
 
 
 
