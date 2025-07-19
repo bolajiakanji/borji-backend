@@ -94,8 +94,8 @@ app.use("/api/likes", likes);
 app.use("/api/profileImage", profileImage);
 app.use("/api/auth", auth);
 app.use("/api/my", my);
-app.use("/api/expoPushTokens", expoPushTokens);
-app.use("/api/messages", messages);
+//app.use("/api/expoPushTokens", expoPushTokens);
+//app.use("/api/messages", messages);
 
 const port = process.env.PORT || config.get("port");
 app.listen(port, function() {
