@@ -18,7 +18,7 @@ router.post("/", validateWith(schema), async (req, res) => {
   console.log(users + 'cv')
   if (users)
     return res
-      .status(400)
+      
       .send({ error: "A user with the given email already exists." });
 
   const user = { name, email, password };
