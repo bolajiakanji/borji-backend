@@ -17,7 +17,7 @@ router.post("/", validateWith(schema), async (req, res) => {
   console.log('herebolajiak')
   const user = await Users.findOne({ email: email})
   if (!user || user.password !== password)
-    return res.status(400).send({ error: "Invalid email or password." });
+    return res.send({ error: "Invalid email or password." });
 
   const token = jwt.sign(
     { _id: user.id, name: user.name, email },
