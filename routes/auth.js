@@ -14,15 +14,11 @@ const schema = Joi.object({
 router.post("/", validateWith(schema), async (req, res) => {
   const { email, password } = req.body;
   //const user = usersStore.getUserByEmail(email);
-  console.log('herebolajiak')
-  const user = await Users.findOne({ email: email})
-  if (!user ) {
-    
-res.status(400).send( 'stupid')
-return
-};
-  // if (!user || user.password !== password) return res.status(400).send({ error: "Invalid email or password." });
-
+  
+  const user = await Users.findOne({ email: email}).lean()
+  if (!user || user.password !== password) {
+    return res.status(400).send({ error: "Invalid email or password." });
+  }
   const token = jwt.sign(
     { _id: user.id, name: user.name, email },
     "jwtPrivateKey"
