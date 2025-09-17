@@ -5,6 +5,8 @@ const jwt = require("jsonwebtoken");
 const usersStore = require("../store/users");
 const validateWith = require("../middleware/validation");
 const Users = require("../models/users");
+//const jwt = require("jsonwebtoken");
+
 
 const schema = Joi.object({
   email: Joi.string().email().required(),
@@ -19,11 +21,15 @@ router.post("/", validateWith(schema), async (req, res) => {
   if (!user || user.password !== password) {
     return res.status(400).send({ error: "Invalid email or password." });
   }
-  const token = jwt.sign(
-    { _id: user.id, name: user.name, email },
+  const token = jwt.sign({ _id: user._id, name: user.name, email },
     "jwtPrivateKey"
   );
-
+console.log(token)
+console.log(user)
+console.log(user._id)
+const payload = jwt.verify(token, "jwtPrivateKey");
+    console.log(payload)
+    console.log('payload345')
   res.send(token);
 });
 

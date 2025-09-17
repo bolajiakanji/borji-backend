@@ -1,4 +1,5 @@
 {
   "delay": 1000,
-  "maxImageCount": 6
+  "maxImageCount": 6,
+  "jwt_env": "jwtkey"
 }

@@ -27,7 +27,8 @@ router.get("/:listingId", auth, async(req, res) => {
 })
   
 router.post("/:listingId", [auth, validateWith(schema)], async (req, res) => {
-    console.log('comment')
+    console.log('comment45')
+    console.log(req.user._id)
     const comment = {
         userId: req.user._id,
         listingId: req.params.listingId,
