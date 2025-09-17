@@ -17,7 +17,7 @@ router.post("/", validateWith(schema), async (req, res) => {
   const users = await Users.findOne({ email: email })
   console.log(users + 'cv')
   if (users)
-    return res.send({ error: "A user with the given email already exists." });
+    return res.status(400).send({ error: "A user with the given email already exists." });
 
   const user = { name, email, password };
   // usersStore.addUser(user);
