@@ -19,7 +19,7 @@ router.get("/:listingId", auth, async(req, res) => {
   const comments = await Comments.find({ listingId: req.params.listingId })
     .populate('userId')
   .lean()
-    if (!comments) return res.status(404).send();
+    if (!comments) return res.status(404).send([]);
   console.log(comments)
   console.log('comments')
   res.status(200).send(comments);

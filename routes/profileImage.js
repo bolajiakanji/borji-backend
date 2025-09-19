@@ -54,7 +54,7 @@ router.post("/:id", upload.single("profileImage"), async (req, res) => {
   console.log(userId);
   const user = await Users.findById(userId);
 
-  if (!user) return res.status(404).send();
+  if (!user) return res.status(404).send({error: 'No such user'});
 
   const getFile = () => {
     return getPath(file);

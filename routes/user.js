@@ -12,7 +12,7 @@ router.get("/",auth,  async (req, res) => {
   const userId = req.user.userId;
   const user = await Users.findById(userId)
   //const user = usersStore.getUserById(userId);
-  if (!user) return res.status(404).send();
+  if (!user) return res.status(404).send({error: 'No such user'});
 
   const userListings = await Listings.find({ userId })
 
