@@ -94,6 +94,7 @@ app.use("/api/likes", likes);
 app.use("/api/profileImage", profileImage);
 app.use("/api/auth", auth);
 app.use("/api/my", my);
+app.use("/api/userListings", userListings);
 //app.use("/api/expoPushTokens", expoPushTokens);
 //app.use("/api/messages", messages);
 
