@@ -79,7 +79,7 @@ app.use((x,y,z) => {
 
 app.get('/api/ok', (req, res) => {
   console.log('ok')
-  res.send('ok')
+  res.send('ok2')
 })
 
 app.use("/api/categories", categories);

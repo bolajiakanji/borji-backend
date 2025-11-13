@@ -24,14 +24,14 @@ const usersSchema = new mongoose.Schema(
       maxLength: 255,
       minlength: 1,
       trim: true,
-        },
-        userListings: {
-            type: Number,
-            required: true,
-            default: 0
+    },
+    userListings: {
+      type: Number,
+      required: true,
+      default: 0
     },
 
-    
+
     nickname: {
       type: String,
       maxLength: 255,
@@ -45,24 +45,24 @@ const usersSchema = new mongoose.Schema(
     },
 
     contacts: {
-     type: [{
+      type: [{
         heading: {
           type: String,
           trim: true,
           maxLength: 255,
           minlength: 1,
-        
+
         },
         contactInfo: {
           type: String,
           trim: true,
           maxLength: 255,
           minlength: 1,
-        
+
         },
 
       }],
-    default: []
+      default: []
     }
   },
 
